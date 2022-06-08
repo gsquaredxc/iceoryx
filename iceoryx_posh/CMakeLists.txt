@@ -144,6 +144,7 @@ iox_add_library(
     NO_FIND_PACKAGE_SUPPORT
     TARGET              iceoryx_posh_gateway
     NAMESPACE           iceoryx_posh
+    PROJECT_PREFIX      ${PREFIX}
     BUILD_INTERFACE     ${CMAKE_CURRENT_SOURCE_DIR}/include
                         ${CMAKE_BINARY_DIR}/generated/iceoryx/include
                         ${CMAKE_BINARY_DIR}/dependencies/install/include
@@ -161,6 +162,7 @@ iox_add_library(
     NO_FIND_PACKAGE_SUPPORT
     TARGET              iceoryx_posh_roudi
     NAMESPACE           iceoryx_posh
+    PROJECT_PREFIX      ${PREFIX}
     PUBLIC_LIBS         iceoryx_posh::iceoryx_posh
     PRIVATE_LIBS        iceoryx_hoofs::iceoryx_hoofs
     PRIVATE_INCLUDES    source/runtime
@@ -202,6 +204,7 @@ if(TOML_CONFIG)
         NO_FIND_PACKAGE_SUPPORT
         TARGET              iceoryx_posh_config
         NAMESPACE           iceoryx_posh
+        PROJECT_PREFIX      ${PREFIX}
         PRIVATE_LIBS        iceoryx_posh::iceoryx_posh
                             iceoryx_hoofs::iceoryx_hoofs
                             iceoryx_posh::iceoryx_posh_roudi
@@ -271,6 +274,7 @@ if(ROUDI_ENVIRONMENT OR BUILD_TEST)
         STATIC
         TARGET                  iceoryx_posh_testing
         NAMESPACE               iceoryx_posh_testing
+        PROJECT_PREFIX          ${PREFIX}
         BUILD_INTERFACE         ${CMAKE_CURRENT_SOURCE_DIR}/testing/include
         INSTALL_INTERFACE       include/${PREFIX}
         PRIVATE_LIBS            iceoryx_posh::iceoryx_posh
